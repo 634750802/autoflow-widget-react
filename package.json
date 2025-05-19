@@ -1,0 +1,83 @@
+{
+  "name": "autoflow-widget-react",
+  "version": "0.0.0-rc6",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:standalone && npm run build:site",
+    "build:standalone": "vite build -c vite.standalone.config.ts",
+    "build:site": "vite build -c vite.site.config.ts",
+    "build:next": "tsc -b && vite build -c vite.library-next.config.ts && cp src/library.d.ts dist",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "tailwind-merge": "^3.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@tailwindcss/postcss": "^4.1.6",
+    "@tailwindcss/typography": "^0.5.16",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/hast": "^3.0.4",
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^22.15.17",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@types/unist": "^3.0.3",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "@wooorm/starry-night": "^3.7.0",
+    "ai": "^3.4.33",
+    "clsx": "^2.1.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "hast-util-to-jsx-runtime": "^2.3.6",
+    "jsdom": "^26.1.0",
+    "lucide-react": "^0.507.0",
+    "postcss": "^8.5.3",
+    "postcss-rem-to-responsive-pixel": "^6.0.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tailwindcss": "^4.1.5",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "unified": "^11.0.5",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.3",
+    "zod": "^3.24.4",
+    "zustand": "^5.0.4"
+  },
+  "peerDependencies": {
+    "clsx": "^2.1.1",
+    "hast-util-to-jsx-runtime": "^2.3.6",
+    "lucide-react": "^0.507.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rehype-starry-night": "^2.2.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5",
+    "zod": "^3.24.4",
+    "zustand": "^5.0.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./next": {
+      "types": "./dist/library.d.ts",
+      "default": "./dist/next/library.js"
+    }
+  },
+  "packageManager": "pnpm@10.10.0"
+}

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@config "./tailwind.config.ts";
+
+
+@theme inline {
+  --color-primary: var(--color-zinc-900);
+  --color-primary-foreground: var(--color-zinc-100);
+  --color-secondary: var(--color-zinc-100);
+  --color-secondary-foreground: var(--color-zinc-900);
+  --color-disabled: var(--color-zinc-200);
+  --color-disabled-foreground: var(--color-zinc-400);
+}
+
+@layer base {
+  :host {
+    font-size: var(--text-base);
+    color: var(--color-primary);
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-zinc-200);
+    outline-color: var(--color-zinc-200);
+  }
+}
+
+@layer utilities {
+  .prose {
+    :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+      color: var(--tw-prose-code);
+      font-size: 0.875em;
+      font-family: var(--font-mono);
+    }
+  }
+}
+

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "@wooorm/starry-night/style/light";
+@plugin "@tailwindcss/typography";
+
+@config "../src/tailwind.config.ts";
+

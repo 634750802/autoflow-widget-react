@@ -1,0 +1,8 @@
+/* This is used for check CSS pollution when developing.*/
+
+:root {
+  font-size: 40px;
+  color: red;
+
+  margin: 8px;
+}
