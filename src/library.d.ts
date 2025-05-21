@@ -16,4 +16,3 @@ export interface ReactBotRootProps {
 }
 
 export declare const ReactBotRoot: FC<ReactBotRootProps>;
-

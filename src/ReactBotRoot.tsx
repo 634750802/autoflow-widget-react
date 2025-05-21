@@ -27,12 +27,17 @@ function ReactBotRoot ({
     root.dataset.autoflowWidget = 'true';
     document.body.appendChild(root);
     setShadowRoot(root.attachShadow({ mode: import.meta.env.MODE === 'test' ? 'open' : 'closed' }));
-    scriptConfig.current = propScriptConfig ?? resolveScriptConfig(document);
-    setConfigPromise(loadConfig(scriptConfig.current));
 
-    return () => {
+    try {
+      scriptConfig.current = propScriptConfig ?? resolveScriptConfig(document);
+      setConfigPromise(loadConfig(scriptConfig.current));
+      return () => {
+        document.body.removeChild(root);
+      };
+    } catch (e) {
+      setConfigPromise(Promise.reject(e));
       document.body.removeChild(root);
-    };
+    }
   }, [propScriptConfig]);
 
   if (shadowRoot) {
